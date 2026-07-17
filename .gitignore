@@ -1,0 +1,12 @@
+# Herramientas locales de Claude Code (config de permisos, no es parte del sitio)
+.claude/
+
+# Fuentes originales sin convertir (ya están self-hosted como .woff2 en assets/fonts)
+Biro Script Complete Family/
+
+# Fotos de referencia sueltas (no son assets del sitio en producción)
+portafolio/
+
+# Sistema
+.DS_Store
+Thumbs.db
