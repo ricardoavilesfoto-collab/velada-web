@@ -1,9 +1,3 @@
-/* ==========================================================
-   VELADA ESTUDIO — Portafolio (galería horizontal tipo carrete)
-   GSAP + ScrollTrigger + Flip. Solo transform/opacity.
-   Mecánica: pin + scrub (rueda vertical → avance horizontal).
-   Degrada con gracia sin GSAP o con prefers-reduced-motion.
-   ========================================================== */
 (function () {
   const doc = document.documentElement;
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -18,14 +12,11 @@
   const nav = document.getElementById("nav");
   const seccion = document.getElementById("galeria");
 
-  // Alto real del nav sticky → alimenta el calc() del alto de la galería y el pin
   const setNavH = () => doc.style.setProperty("--nav-h", (nav ? nav.offsetHeight : 58) + "px");
   setNavH();
   window.addEventListener("resize", setNavH);
 
-  // (Menú móvil, Lenis y cursor personalizado son globales: viven en site.js.)
-
-  // ---------- HUD (barra de progreso + contador) ----------
+  // Menú móvil, Lenis y cursor personalizado son globales: viven en site.js.
   let totalVisible = fotos.length;
   const pad = (n) => String(n).padStart(2, "0");
   const setTotal = () => { if (elTotal) elTotal.textContent = pad(totalVisible); };
@@ -40,18 +31,14 @@
     return window.scrollY + seccion.getBoundingClientRect().top;
   }
 
-  // ---------- Filtrado real por categoría ----------
   function aplicarFiltro(cat, animate) {
     const match = (f) => cat === "todas" || f.dataset.categoria === cat;
     totalVisible = fotos.filter(match).length;
     const toggle = () => fotos.forEach((f) => f.classList.toggle("foto--oculta", !match(f)));
 
     if (animate && window.gsap && window.Flip) {
-      // Se limpia TODO estilo inline residual antes de que Flip mida las posiciones. Esto cubre
-      // dos casos: (1) el transform de entrada a medio aplicar si se filtra durante el stagger;
-      // (2) el position:absolute; left:0; top:0 que Flip deja sobre las fotos tras un filtro
-      // anterior — sin limpiarlo, las fotos que reaparecen al volver a "Todas" arrastraban ese
-      // origen y quedaban apiladas en la esquina en vez de fluir a su lugar natural.
+      // OJO: limpiar TODO estilo inline antes de que Flip mida — si no, el position:absolute que
+      // Flip deja de un filtro anterior hace que las fotos reaparezcan apiladas en la esquina.
       gsap.killTweensOf(fotos);
       gsap.set(fotos, { clearProps: "all" });
       gsap.set(fotos, { opacity: 1 });
@@ -62,14 +49,10 @@
         onEnter: (els) => gsap.fromTo(els, { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.4 }),
         onLeave: (els) => gsap.to(els, { opacity: 0, scale: 0.92, duration: 0.3 }),
         onComplete: () => {
-          // Flip deja estilos inline (position/top/left/tamaño/transform) sobre las fotos al
-          // animarlas; sin limpiarlos, al volver a "Todas" tras varios filtros algunas quedaban
-          // apiladas en el origen. Se restablece el layout dictado por CSS (flex + clases marco)
-          // en cada asentamiento del filtro.
-          gsap.set(fotos, { clearProps: "all" });
+          gsap.set(fotos, { clearProps: "all" }); // limpia los estilos inline que deja Flip (ver arriba)
           if (window.ScrollTrigger) {
             ScrollTrigger.refresh();
-            window.scrollTo({ top: galeriaTop(), behavior: "auto" }); // reinicia el carrete al principio
+            window.scrollTo({ top: galeriaTop(), behavior: "auto" });
           }
         },
       });
@@ -89,7 +72,6 @@
     })
   );
 
-  // ---------- Guard: sin GSAP o reduced-motion → mostrar todo, scroll/layout nativos ----------
   if (reduce || typeof window.gsap === "undefined") {
     doc.classList.remove("js-portafolio");
     setTotal();
@@ -98,20 +80,15 @@
 
   gsap.registerPlugin(ScrollTrigger, Flip);
 
-  // Entrada en secuencia (una sola vez): solo fundido, SIN deslizamiento horizontal. Antes
-  // usaba x:60 y las fotos nacían corridas a la derecha y se deslizaban a su lugar; ese
-  // recorrido a la izquierda se percibía como un "brinco" al final de la carga. Un fundido
-  // limpio las deja aparecer justo donde se quedan. (No se toca transform: las de preparativos
-  // conservan su rotación CSS intacta.)
+  // Solo fundido, SIN deslizamiento horizontal (x:60 hacía que las fotos "brincaran" al
+  // llegar): así no se toca transform y las de preparativos conservan su rotación CSS.
   doc.classList.remove("js-portafolio");
   gsap.from(fotos, {
     opacity: 0, duration: 0.7, ease: "power2.out", stagger: 0.06,
     clearProps: "opacity",
   });
 
-  // ---------- Pin + avance horizontal: solo escritorio ----------
-  // La traslación X se aplica en onUpdate/onRefresh (a partir de self.progress).
-  // Lenis ya suaviza el scroll, así que el avance del carrete se siente fluido.
+  // Pin + avance horizontal (solo escritorio): la traslación X se aplica en onUpdate/onRefresh.
   const mm = gsap.matchMedia();
   mm.add("(min-width: 901px)", () => {
     const dist = () => Math.max(0, pista.scrollWidth - viewport.clientWidth);

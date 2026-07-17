@@ -1,20 +1,11 @@
-/* ==========================================================
-   VELADA ESTUDIO — Animaciones y navegación
-   GSAP + ScrollTrigger. Solo transform/opacity (rendimiento).
-   Todas las animaciones corren una sola vez (once: true).
-   ========================================================== */
-
-// La clase .js ya se agrega en un script inline en <head> (evita el parpadeo inicial)
-// El menú móvil, el scroll suave (Lenis) y el cursor personalizado son globales: viven en site.js.
-
-// ---------- Animaciones ----------
+// El menú móvil, Lenis y el cursor personalizado son globales: viven en site.js.
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const LOADER_KEY = "veladaLoaderShown";
 const alreadyShown = sessionStorage.getItem(LOADER_KEY) === "1";
 const skipHeroAnimation = reduceMotion || typeof gsap === "undefined" || alreadyShown;
 
 if (!skipHeroAnimation) {
-  // Se agrega antes de DOMContentLoaded para que no haya un frame scrolleable de por medio
+  // Se agrega antes de DOMContentLoaded para que no haya un frame scrolleable de por medio.
   document.documentElement.classList.add("is-loading");
   sessionStorage.setItem(LOADER_KEY, "1");
 }
@@ -23,14 +14,10 @@ window.addEventListener("DOMContentLoaded", () => {
   const hasGsap = typeof gsap !== "undefined";
   if (hasGsap && typeof ScrollTrigger !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
-  // Lenis (scroll suave) se crea en site.js; aquí solo lo consumimos para el loader.
-  // El lightbox y el cursor también son globales (site.js).
-  const lenis = window.veladaLenis || null;
+  const lenis = window.veladaLenis || null; // Lenis se crea en site.js, aquí solo se consume
   if (lenis && document.documentElement.classList.contains("is-loading")) lenis.stop();
 
-  // ---------- Path del loader ----------
   if (skipHeroAnimation) {
-    // Sin animaciones de entrada: mostrar todo de inmediato
     document.documentElement.classList.remove("js");
     document.documentElement.classList.remove("is-loading");
     document.getElementById("loader")?.remove();
@@ -38,11 +25,11 @@ window.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // 1) Preloader: fotos del hero apiladas en el centro → se distribuyen a su posición final
+  // Preloader: fotos del hero apiladas en el centro → se distribuyen a su posición final.
   const collage = document.querySelector(".hero__collage");
   const loaderEl = document.getElementById("loader");
   const photos = gsap.utils.toArray(".hero__photo")
-    .filter((el) => getComputedStyle(el).display !== "none"); // excluye inf-izq/inf-der en mobile
+    .filter((el) => getComputedStyle(el).display !== "none");
 
   const JITTER = [10, -8, 6, -11, 9]; // jitter de rotación determinístico mientras están apiladas
 
@@ -87,7 +74,6 @@ window.addEventListener("DOMContentLoaded", () => {
     const centroIndex = photos.indexOf(centro);
     const centroDelta = deltas[centroIndex];
 
-    // Solo la foto central hace el pop-in visible; las demás quedan ocultas detrás de ella
     gsap.set(centro, {
       x: centroDelta.dx, y: centroDelta.dy, scale: 0.5, opacity: 0,
       rotate: centroDelta.rot + JITTER[centroIndex % JITTER.length],
@@ -96,13 +82,11 @@ window.addEventListener("DOMContentLoaded", () => {
     gsap.set(others, {
       x: (i, el) => deltas[photos.indexOf(el)].dx,
       y: (i, el) => deltas[photos.indexOf(el)].dy,
-      scale: 0.3, // más pequeñas que la escala de apilado de centro (0.82), quedan ocultas debajo
-      opacity: 1, // ocultas por estar detrás de centro (z-index menor), no por opacidad
+      scale: 0.3, opacity: 1, // ocultas detrás de centro por z-index, no por opacidad
       rotate: centroDelta.rot,
     });
 
-    // Libera el scroll en cuanto las fotos terminan de expandirse y el loader se desvanece
-    // (ya se ve el collage y el menú), sin esperar a que aparezcan los textos del hero.
+    // Libera el scroll en cuanto el loader se desvanece, sin esperar los textos del hero.
     // Idempotente: lo dispara el fade del loader y, como red de seguridad, el onComplete.
     let scrollUnlocked = false;
     const unlockScroll = () => {
@@ -119,8 +103,6 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     loaderTl
-      // Línea de progreso: recorre 0→100% dentro del tiempo que el loader ya está en
-      // pantalla (no añade delay, así no afecta el LCP).
       .to(".loader__bar-fill", { scaleX: 1, duration: 1.0, ease: "power1.inOut" }, 0)
       .to(centro, { opacity: 1, scale: .82, duration: .35 }, 0)
       .to(centro, { x: 0, y: 0, scale: 1, duration: .55, ease: "power3.out", rotate: centroDelta.rot }, "-=.05")
@@ -134,7 +116,6 @@ window.addEventListener("DOMContentLoaded", () => {
       .to(".hero__cta, .hero__micro, .hero__geo", { opacity: 1, y: 0, duration: .6, stagger: .1, startAt: { y: 18 } }, "-=.4");
   }
 
-  // 2) Fade-up genérico al hacer scroll
   gsap.utils.toArray("main [data-anim='fade-up']").forEach((el) => {
     if (el.closest(".hero")) return; // el hero ya tiene su timeline
     gsap.to(el, {
@@ -144,7 +125,6 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 3) Grids con stagger (portafolio y tarjetas de paquetes)
   gsap.utils.toArray("[data-anim='grid']").forEach((grid) => {
     gsap.to(grid.children, {
       opacity: 1, y: 0, duration: .65, ease: "power2.out", stagger: .09,
@@ -153,14 +133,13 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 4) Parallax sutil en el banner de cierre (solo transform)
   gsap.to(".banner__bg", {
     yPercent: 12, ease: "none",
     scrollTrigger: { trigger: ".banner", start: "top bottom", end: "bottom top", scrub: true },
   });
 
-  // Recalcular las posiciones de disparo cuando la fuente y las imágenes terminan de cargar
-  // (evita que en móvil los textos aparezcan tarde por el desfase de layout al cargar).
+  // ScrollTrigger.refresh() al cargar fuentes/imágenes: evita que en móvil los textos
+  // aparezcan tarde por el desfase de layout que deja el swap de webfont.
   const refresh = () => { if (typeof ScrollTrigger !== "undefined") ScrollTrigger.refresh(); };
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(refresh);
   window.addEventListener("load", refresh);
