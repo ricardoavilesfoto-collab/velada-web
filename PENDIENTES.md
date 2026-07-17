@@ -35,10 +35,25 @@ mismo nombre** para no tocar el HTML/CSS.
   `fiesta-brindis-01` que se habían creado para un enfoque anterior.)
 
 ## Datos de contacto y dominio
-- [ ] **WhatsApp:** el número `5215500000000` en los enlaces `wa.me/...` es placeholder. Reemplazar por el número real en las 3 páginas (aparece en el nav y en el botón flotante).
-- [ ] **Dominio:** confirmar `veladaestudio.mx` en `<link rel="canonical">` y `og:url` de las 3 páginas (y en `og:image`, `sitemap.xml`, datos estructurados JSON-LD).
-- [ ] **Enlaces internos del nav en `index.html`:** el logo y "Inicio" usan `href="#"` (placeholder). Definir destino final.
-- [ ] Redes sociales del footer: confirmar/actualizar URLs.
+- [x] **WhatsApp:** número real (`525535571558`) ya está en las 4 páginas.
+- [x] **Dominio:** `veladaestudio.mx` confirmado en canonical, og:url, og:image, sitemap.xml y JSON-LD de las 4 páginas.
+- [x] **Enlaces internos:** todos apuntan a las páginas reales, con URLs limpias (`/portafolio`,
+  `/paquetes`, `/sobre-nosotros`, `/`) que coinciden con `cleanUrls:true` de `vercel.json`.
+- [ ] Redes sociales del footer: confirmar/actualizar URLs (Facebook/Instagram, hoy `href="#"`).
+
+## Texto placeholder por reemplazar
+- [ ] `sobre-nosotros.html`: las dos polaroids del equipo muestran literalmente
+  "[Nombre del fotógrafo]" como texto — hay que poner los nombres reales
+  (`.polaroid__nombre--1` / `--2`, cerca de la línea 91).
+
+## Limpieza opcional de assets (no urgente)
+Hay ~16 MB de imágenes en `assets/img/` que ya no se usan en ninguna página (quedaron de
+versiones anteriores del portafolio): `equipo-01.jpg`, `equipo-02.jpg`, `hero-centro.png`,
+`hero-inf-der.png`, `hero-inf-izq.png`, `hero-sup-der.png`, `hero-sup-izq.png`,
+`nosotros-filosofia.jpg`, `nosotros-quienes.jpg`, y en `assets/img/portafolio/`:
+`fiesta-01..04.jpg/webp`, `sesion-01..04.jpg/webp`. No afectan el sitio (el navegador solo
+descarga lo que está referenciado), pero sí pesan en el repositorio. Se pueden borrar cuando
+quieras, sin tocar código.
 
 ## Notas de diseño (posición manual)
 - Nombres manuscritos de las polaroids (`.polaroid__nombre--1/--2`): ajustar a mano su posición (top/left/bottom + transform) en `styles.css`, igual que el "Love…" del index.

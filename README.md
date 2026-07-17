@@ -6,15 +6,25 @@ Sitio estático (HTML + CSS + JS, sin build step) listo para Vercel.
 
 ```
 velada-web/
-├── index.html          ← toda la página de inicio
-├── css/styles.css      ← estilos (tokens de la paleta oficial arriba del archivo)
-├── js/main.js          ← animaciones GSAP + menú móvil
+├── index.html            ← inicio
+├── portafolio.html       ← galería tipo carrete (4 "actos": preparativos/ceremonia/sesión/fiesta)
+├── paquetes.html         ← tabla comparativa de precios
+├── sobre-nosotros.html   ← equipo, valores, proceso
+├── css/styles.css        ← estilos (tokens de la paleta oficial arriba del archivo)
+├── js/
+│   ├── site.js            ← global (menú móvil, Lenis, cursor, lightbox) — en todas las páginas
+│   ├── main.js             ← preloader + animaciones de scroll (solo index.html)
+│   ├── pagina.js           ← animaciones de scroll (paquetes/sobre-nosotros)
+│   └── portafolio.js       ← pin + filtros + Flip (solo portafolio.html)
 ├── assets/
 │   ├── favicon.svg
-│   └── img/            ← TODAS las imágenes (placeholders por ahora)
-├── vercel.json         ← caché de assets
+│   ├── vendor/          ← GSAP/ScrollTrigger/Flip/Lenis vendorizados (sin CDN)
+│   └── img/             ← todas las imágenes
+├── vercel.json          ← caché de assets + cleanUrls
 ├── robots.txt
-└── sitemap.xml
+├── sitemap.xml
+├── NOTAS-TECNICAS.md    ← el "por qué" de las partes no evidentes del código + mapa del portafolio
+└── PENDIENTES.md        ← checklist de contenido por completar
 ```
 
 ## Cómo cambiar las imágenes (lo más importante)
@@ -35,14 +45,19 @@ Cada placeholder tiene un **nombre fijo** y una **proporción exacta**. Para pon
 | `banner-luz.jpg` | Banner final "Cada boda tiene su propia luz" | panorámica (~2000×1100) |
 | `og-image.jpg` | Imagen al compartir en redes | 1200×630 exacto |
 
+> Esta tabla cubre las fotos del **index**. Las fotos del portafolio (`assets/img/portafolio/`,
+> organizadas en 4 "actos") tienen su propio mapa en **`NOTAS-TECNICAS.md`**.
+
 **Formato:** todas las fotos ya usan `<picture>` con **WebP + respaldo JPG**. Al reemplazar una imagen, genera también su `.webp` (ver `PERFORMANCE.md`). Calidad ~80 es buen equilibrio; procura que ninguna pese más de ~250 KB.
 
-## Pendientes de personalizar (buscar en `index.html`)
+## Pendientes de personalizar
 
-- [ ] **Número de WhatsApp**: buscar `5215500000000` y reemplazar (aparece 4 veces)
-- [ ] **Dominio**: buscar `veladaestudio.mx` y poner el dominio definitivo (canonical, OG, JSON-LD, sitemap.xml, robots.txt)
-- [ ] **Links de redes** en el footer (`#` por ahora)
-- [ ] **Links internos** de "Ver portafolio completo", "Saber más", etc. (apuntan a `#` hasta que existan esas páginas)
+- [x] **Número de WhatsApp**: ya actualizado en las 4 páginas.
+- [x] **Dominio**: `veladaestudio.mx` ya está en canonical, OG, JSON-LD, sitemap.xml y robots.txt.
+- [x] **Links internos**: todas las páginas existen y están enlazadas correctamente.
+- [ ] **Links de redes** en el footer (`#` por ahora — faltan las URLs reales de Facebook/Instagram)
+- [ ] **Fotos placeholder** y el nombre del fotógrafo en `sobre-nosotros.html` (dice literalmente
+  "[Nombre del fotógrafo]" — hay que reemplazarlo por el nombre real)
 > Nota: la lista completa y actualizada de pendientes de contenido está en **`PENDIENTES.md`**.
 
 ## Correr localmente
@@ -50,6 +65,11 @@ Cada placeholder tiene un **nombre fijo** y una **proporción exacta**. Para pon
 ```bash
 npx serve .
 ```
+
+> Los links internos usan URLs limpias (`/portafolio`, no `/portafolio.html`), igual que en
+> Vercel. `npx serve .` las resuelve correctamente; un servidor simple como
+> `python -m http.server` no, así que la navegación entre páginas solo funcionará abriendo
+> cada archivo `.html` directamente por su nombre.
 
 ## Subir a Vercel
 
