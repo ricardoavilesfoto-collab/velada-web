@@ -42,9 +42,7 @@ mismo nombre** para no tocar el HTML/CSS.
 - [ ] Redes sociales del footer: confirmar/actualizar URLs (Facebook/Instagram, hoy `href="#"`).
 
 ## Texto placeholder por reemplazar
-- [ ] `sobre-nosotros.html`: las dos polaroids del equipo muestran literalmente
-  "[Nombre del fotógrafo]" como texto — hay que poner los nombres reales
-  (`.polaroid__nombre--1` / `--2`, cerca de la línea 91).
+- [x] `sobre-nosotros.html`: nombres reales puestos (Ricardo / Iris) en las polaroids del equipo.
 
 ## Limpieza opcional de assets (no urgente)
 Hay ~16 MB de imágenes en `assets/img/` que ya no se usan en ninguna página (quedaron de
