@@ -292,7 +292,8 @@ html.menu-open { overflow: hidden; }
 .filosofia__text .btn { margin-top: 1.7rem; }
 
 .banner { position: relative; min-height: 820px; display: -webkit-flex; place-items: center; text-align: center; overflow: hidden; isolation: isolate; }
-.banner__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 74%; z-index: -2; }
+/* Más alta que el contenedor: el parallax en scroll (yPercent en main.js) la desliza sin dejar huecos. */
+.banner__bg { position: absolute; top: -15%; left: 0; width: 100%; height: 130%; object-fit: cover; object-position: 55% 74%; z-index: -2; }
 .banner::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
   background: linear-gradient(180deg, rgba(26, 24, 20, .50), rgba(31, 58, 95, .50));
@@ -469,8 +470,8 @@ html.is-loading .hero__photo { will-change: transform, opacity; }
   .hero__photo--centro { width: 85%; left: 7.5%; top: 0; }
   .hero__photo--sup-izq, .hero__photo--sup-der,
   .hero__photo--inf-izq, .hero__photo--inf-der { display: none; }
-  .hero__note--love { left: 7%; top: -9%; }
-  .hero__note--just { right: 20%; bottom: 7%; }
+  .hero__note--love { left: 7%; top: -5%; }
+  .hero__note--just { right: 0px; bottom: 5%; width: 19ch; }
 
   .portfolio__grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .portfolio__item--pano { grid-column: 1 / -1; }
