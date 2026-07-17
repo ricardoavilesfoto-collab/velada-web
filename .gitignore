@@ -4,8 +4,9 @@
 # Fuentes originales sin convertir (ya están self-hosted como .woff2 en assets/fonts)
 Biro Script Complete Family/
 
-# Fotos de referencia sueltas (no son assets del sitio en producción)
-portafolio/
+# Fotos de referencia sueltas en la raíz (no son assets del sitio en producción).
+# OJO: con "/" al inicio para que NO afecte a assets/img/portafolio/ (las fotos reales del sitio).
+/portafolio/
 
 # Sistema
 .DS_Store
