@@ -43,17 +43,17 @@
 
   <header class="nav" id="nav">
     <div class="container nav__inner">
-      <a href="index.html" class="nav__logo" aria-label="Velada Estudio — inicio">
+      <a href="/" class="nav__logo" aria-label="Velada Estudio — inicio">
         <img src="assets/Logo_header.svg" alt="" width="101" height="26">
       </a>
       <nav class="nav__menu" aria-label="Navegación principal">
         <button class="nav__close" id="menu-close" type="button" aria-label="Cerrar menú">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
         </button>
-        <a href="index.html" class="nav__link">Inicio</a>
-        <a href="portafolio.html" class="nav__link">Portafolio</a>
-        <a href="paquetes.html" class="nav__link">Paquetes</a>
-        <a href="sobre-nosotros.html" class="nav__link nav__link--active">Nosotros</a>
+        <a href="/" class="nav__link">Inicio</a>
+        <a href="/portafolio" class="nav__link">Portafolio</a>
+        <a href="/paquetes" class="nav__link">Paquetes</a>
+        <a href="/sobre-nosotros" class="nav__link nav__link--active">Nosotros</a>
         <a href="https://wa.me/525535571558?text=Hola%2C%20quiero%20informes%20para%20mi%20boda" class="btn btn--teja btn--sm" target="_blank" rel="noopener">Contáctanos</a>
       </nav>
       <button class="nav__burger" id="burger" aria-label="Abrir menú" aria-expanded="false">
@@ -77,10 +77,16 @@
 
         <div class="polaroids" data-anim="fade-up">
           <figure class="polaroid polaroid--1">
-            <img src="assets/img/nosotros-equipo-01.webp" alt="Retrato del fotógrafo principal de Velada Estudio" width="868" height="1200" loading="lazy" decoding="async">
+            <picture>
+              <source srcset="assets/img/nosotros-equipo-01.webp" type="image/webp">
+              <img src="assets/img/nosotros-equipo-01.jpg" alt="Retrato del fotógrafo principal de Velada Estudio" width="868" height="1200" decoding="async">
+            </picture>
           </figure>
           <figure class="polaroid polaroid--2">
-            <img src="assets/img/nosotros-equipo-02.webp" alt="Retrato de un fotógrafo de Velada Estudio" width="868" height="1200" loading="lazy" decoding="async">
+            <picture>
+              <source srcset="assets/img/nosotros-equipo-02.webp" type="image/webp">
+              <img src="assets/img/nosotros-equipo-02.jpg" alt="Retrato de un fotógrafo de Velada Estudio" width="868" height="1200" decoding="async">
+            </picture>
           </figure>
           <p class="polaroid__nombre polaroid__nombre--1">[Nombre del fotógrafo]</p>
           <p class="polaroid__nombre polaroid__nombre--2">[Nombre del fotógrafo]</p>
@@ -187,10 +193,10 @@
       </div>
       <nav class="footer__col" aria-label="Menú del pie de página">
         <p class="footer__col-title">Menú</p>
-        <a href="index.html">Inicio</a>
-        <a href="portafolio.html">Portafolio</a>
-        <a href="paquetes.html">Paquetes</a>
-        <a href="sobre-nosotros.html">Nosotros</a>
+        <a href="/">Inicio</a>
+        <a href="/portafolio">Portafolio</a>
+        <a href="/paquetes">Paquetes</a>
+        <a href="/sobre-nosotros">Nosotros</a>
       </nav>
       <nav class="footer__col" aria-label="Legales">
         <p class="footer__col-title">Legal</p>
