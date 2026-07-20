@@ -213,5 +213,9 @@
   <script src="assets/vendor/lenis.min.js" defer></script>
   <script src="js/site.js?v=9" defer></script>
   <script src="js/pagina.js?v=9" defer></script>
+  <script type="module">
+    import { injectSpeedInsights } from 'https://cdn.jsdelivr.net/npm/@vercel/speed-insights@1/dist/index.mjs';
+    injectSpeedInsights({ route: '/sobre-nosotros' });
+  </script>
 </body>
 </html>
