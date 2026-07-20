@@ -9,9 +9,29 @@
 - [Sobre nosotros](https://veladaestudio.com.mx/sobre-nosotros): Equipo, valores y proceso de trabajo del estudio.
 
 ## Paquetes
-- Solo fotografía (desde $7,500 MXN): Esencial, Clásico, Eterno.
-- Solo video (desde $11,500 MXN): Cinematic Oro, Cinematic Diamante.
-- Foto + Video (desde $15,500 MXN): Plata, Oro, Diamante.
+
+### Solo fotografía — desde $7,500 MXN
+| Paquete | Cobertura | Fotógrafos | Fotos editadas | Estuche personalizado | Sesión Save the Date | Invitación digital de regalo | Adelanto 50 fotos en 48h | Álbum + cuadro impreso |
+|---|---|---|---|---|---|---|---|---|
+| Esencial | 6 hrs | 1 | 300 | Sí | No | No | No | No |
+| Clásico | 8 hrs | 1 | 500 | Sí | 15 fotos | Sí | No | No |
+| Eterno | 10 hrs | 2 | 700+ | Sí | 30 fotos | Sí | Sí | Sí |
+
+### Solo video — desde $11,500 MXN
+| Paquete | Cobertura | Videógrafos | Estuche personalizado | Video highlight | Película de la boda (1 hr) | Reel para Instagram (15 días) | Dashboard Confessional Video | Perspectiva de invitados 360 | Invitación digital de regalo |
+|---|---|---|---|---|---|---|---|---|---|
+| Cinematic Oro | 8 hrs | 2 | Sí | Sí (3-5 min) | Sí | No | No | No | Sí |
+| Cinematic Diamante | 10 hrs | 2 | Sí | Sí (3-5 min) | Sí | Sí | Sí | Sí | Sí |
+
+### Foto + Video — desde $15,500 MXN
+| Paquete | Cobertura | Fotógrafo/Videógrafo | Fotos editadas | Invitación digital de regalo | Estuche personalizado | Video highlight | Sesión Save the Date | Álbum impreso | Película de la boda (1 hr) | Adelanto 50 fotos en 48h | Perspectiva 360 + Reel IG | Dashboard Confessional Video |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Plata | 6 hrs | 1 / 1 | 300 | Sí | Sí | 10-15 min | 15 fotos | No | No | No | No | No |
+| Oro | 8 hrs | 1 / 2 | 500 | Sí | Sí | 3-5 min | 15 fotos | Sí | Sí | Sí | No | No |
+| Diamante | 10 hrs | 2 / 2 | 700+ | Sí | Sí | 3-5 min | 30 fotos | Sí | Sí | Sí | Sí | Sí |
+
+### Paquete personalizado
+Si ninguno encaja exacto, se puede cotizar un paquete a la medida.
 
 ## Zonas de cobertura
 - CDMX y Estado de México, sin costo de viáticos.
