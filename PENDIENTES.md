@@ -36,7 +36,7 @@ mismo nombre** para no tocar el HTML/CSS.
 
 ## Datos de contacto y dominio
 - [x] **WhatsApp:** número real (`525535571558`) ya está en las 4 páginas.
-- [x] **Dominio:** `veladaestudio.mx` confirmado en canonical, og:url, og:image, sitemap.xml y JSON-LD de las 4 páginas.
+- [x] **Dominio:** `veladaestudio.com.mx` confirmado en canonical, og:url, og:image, sitemap.xml y JSON-LD de las 4 páginas.
 - [x] **Enlaces internos:** todos apuntan a las páginas reales, con URLs limpias (`/portafolio`,
   `/paquetes`, `/sobre-nosotros`, `/`) que coinciden con `cleanUrls:true` de `vercel.json`.
 - [ ] Redes sociales del footer: confirmar/actualizar URLs (Facebook/Instagram, hoy `href="#"`).

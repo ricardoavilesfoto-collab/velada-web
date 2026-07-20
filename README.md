@@ -53,7 +53,7 @@ Cada placeholder tiene un **nombre fijo** y una **proporción exacta**. Para pon
 ## Pendientes de personalizar
 
 - [x] **Número de WhatsApp**: ya actualizado en las 4 páginas.
-- [x] **Dominio**: `veladaestudio.mx` ya está en canonical, OG, JSON-LD, sitemap.xml y robots.txt.
+- [x] **Dominio**: `veladaestudio.com.mx` ya está en canonical, OG, JSON-LD, sitemap.xml y robots.txt.
 - [x] **Links internos**: todas las páginas existen y están enlazadas correctamente.
 - [ ] **Links de redes** en el footer (`#` por ahora — faltan las URLs reales de Facebook/Instagram)
 - [ ] **Fotos placeholder** y el nombre del fotógrafo en `sobre-nosotros.html` (dice literalmente
