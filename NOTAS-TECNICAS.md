@@ -183,7 +183,9 @@ rotación CSS intacta.
 
 Referencia rápida para ubicar una foto por nombre de archivo, útil al reemplazar imágenes
 manualmente en `assets/img/portafolio/`. El orden de esta tabla es el orden real en
-`portafolio.html`.
+`portafolio.html`. **26 fotos reales totales** (Preparativos 6, Ceremonia 6, Sesión 9, Fiesta 6)
++ cierre textual. El contador HTML del panel lateral marca **28** porque suma los dos elementos
+finales de layout (la nota de cierre y el bloque de texto).
 
 ### Acto 1 · Preparativos
 

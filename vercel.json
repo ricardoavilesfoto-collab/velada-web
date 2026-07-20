@@ -1,20 +1,6 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "veladaestudio.com" }],
-      "destination": "https://veladaestudio.com.mx/:path*",
-      "statusCode": 301
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.veladaestudio.com" }],
-      "destination": "https://veladaestudio.com.mx/:path*",
-      "statusCode": 301
-    }
-  ],
   "headers": [
     {
       "source": "/assets/(.*)",

@@ -3,10 +3,10 @@
 > Velada Estudio es un estudio de fotografía y video de bodas en Ciudad de México, con cobertura en Estado de México, Puebla, Morelos, Hidalgo y Querétaro. Ofrece paquetes con precios claros, sin sorpresas, e invitación digital de regalo en todos los paquetes que la incluyen.
 
 ## Páginas principales
-- [Inicio](https://veladaestudio.com.mx/): Presentación del estudio, filosofía "del posar al estar" y resumen de paquetes y portafolio.
-- [Paquetes y precios](https://veladaestudio.com.mx/paquetes): Comparativa de paquetes de fotografía, video, y foto + video, con precios desde $7,500 MXN.
-- [Portafolio](https://veladaestudio.com.mx/portafolio): Galería de bodas reales organizada en 4 actos: preparativos, ceremonia, sesión y fiesta.
-- [Sobre nosotros](https://veladaestudio.com.mx/sobre-nosotros): Equipo, valores y proceso de trabajo del estudio.
+- [Inicio](https://www.veladaestudio.com.mx/): Presentación del estudio, filosofía "del posar al estar" y resumen de paquetes y portafolio.
+- [Paquetes y precios](https://www.veladaestudio.com.mx/paquetes): Comparativa de paquetes de fotografía, video, y foto + video, con precios desde $7,500 MXN.
+- [Portafolio](https://www.veladaestudio.com.mx/portafolio): Galería de bodas reales organizada en 4 actos: preparativos, ceremonia, sesión y fiesta.
+- [Sobre nosotros](https://www.veladaestudio.com.mx/sobre-nosotros): Equipo, valores y proceso de trabajo del estudio.
 
 ## Paquetes
 

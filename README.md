@@ -50,15 +50,19 @@ Cada placeholder tiene un **nombre fijo** y una **proporción exacta**. Para pon
 
 **Formato:** todas las fotos ya usan `<picture>` con **WebP + respaldo JPG**. Al reemplazar una imagen, genera también su `.webp` (ver `PERFORMANCE.md`). Calidad ~80 es buen equilibrio; procura que ninguna pese más de ~250 KB.
 
-## Pendientes de personalizar
+## Estado del sitio
 
-- [x] **Número de WhatsApp**: ya actualizado en las 4 páginas.
-- [x] **Dominio**: `veladaestudio.com.mx` ya está en canonical, OG, JSON-LD, sitemap.xml y robots.txt.
-- [x] **Links internos**: todas las páginas existen y están enlazadas correctamente.
-- [ ] **Links de redes** en el footer (`#` por ahora — faltan las URLs reales de Facebook/Instagram)
-- [ ] **Fotos placeholder** y el nombre del fotógrafo en `sobre-nosotros.html` (dice literalmente
-  "[Nombre del fotógrafo]" — hay que reemplazarlo por el nombre real)
-> Nota: la lista completa y actualizada de pendientes de contenido está en **`PENDIENTES.md`**.
+- [x] **Número de WhatsApp**: `525529425671` en las 4 páginas.
+- [x] **Dominio**: `www.veladaestudio.com.mx` en canonical, OG, JSON-LD, sitemap.xml y robots.txt.
+- [x] **Links internos**: todas las páginas existen y están enlazadas.
+- [x] **Portafolio real**: 26 fotos reales en los 4 actos (Preparativos, Ceremonia, Sesión, Fiesta).
+- [x] **Nombre del equipo**: Ricardo puesto en `sobre-nosotros.html`.
+- [x] **`llms.txt`** publicado para agentes de IA.
+- [x] **Redirect** de `veladaestudio.com` y del apex `.com.mx` → `www.veladaestudio.com.mx` (configurado en Vercel).
+- [ ] **Links de redes** en el footer (`href="#"`) — pendiente poner IG (`veladaestudio`) y FB.
+- [ ] **Links de Legal** (`Privacidad`, `Términos`) — pendiente crear páginas.
+
+> La lista completa y actualizada de pendientes de contenido y SEO está en **`PENDIENTES.md`**.
 
 ## Correr localmente
 
